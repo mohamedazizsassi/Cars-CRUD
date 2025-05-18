@@ -1,0 +1,88 @@
+<div class="container mt-4">
+    <h2 class="mb-4 text-center fw-bold">Car Management</h2>
+    <!-- Search Bar -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Search cars..." [(ngModel)]="searchTerm"
+                (ngModelChange)="filterCars()">
+        </div>
+    </div>
+
+    <!-- Car Table -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Car Name</th>
+                <th>Brand</th>
+                <th>Characteristics</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of paginatedCars">
+                <td>{{ car.nom }}</td>
+                <td>{{ car.marque }}</td>
+                <td>{{ car.caracteristique }}</td>
+                <td>{{ car.prix }}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="onEdit(car)">Edit</button>
+                    <button class="btn btn-danger" (click)="confirmDelete(car.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination controls -->
+    <div class="d-flex justify-content-center align-items-center my-3 gap-3">
+        <button class="btn btn-outline-secondary" (click)="prevPage()" [disabled]="currentPage === 1">
+            Previous
+        </button>
+
+        <span class="fw-semibold text-muted">Page {{ currentPage }} of {{ totalPages }}</span>
+
+        <button class="btn btn-outline-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">
+            Next
+        </button>
+    </div>
+
+    <div class="modal" #carModal tabindex="-1" [ngClass]="{'d-block': selectedCarId !== null}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Car</h5>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="editForm" (ngSubmit)="updateCar()">
+                        <div class="form-group">
+                            <label for="nom">Car Name</label>
+                            <input id="nom" type="text" class="form-control" formControlName="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="marque">Brand</label>
+                            <input id="marque" type="text" class="form-control" formControlName="marque" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="caracteristique">Characteristics</label>
+                            <input id="caracteristique" type="text" class="form-control"
+                                formControlName="caracteristique" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prix">Price</label>
+                            <input id="prix" type="number" class="form-control" formControlName="prix" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="picture">Picture URL</label>
+                            <input id="picture" type="text" class="form-control" formControlName="picture" required>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success mt-3"
+                                [disabled]="editForm.invalid">Update</button>
+                            <button type="button" class="btn btn-danger mt-3"
+                                (click)="selectedCarId = null">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

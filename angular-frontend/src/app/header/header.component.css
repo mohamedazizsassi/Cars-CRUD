@@ -1,0 +1,6 @@
+.active-link {
+    background-color: #ffc107 !important;
+    color: black !important;
+    border-color: #ffc107 !important;
+    font-weight: bold;
+}

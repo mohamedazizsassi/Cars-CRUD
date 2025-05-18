@@ -1,0 +1,139 @@
+/* Container padding and layout */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+/* Search Bar */
+input.form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Table styling */
+.table {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    padding: 0.75rem 1rem;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-bordered> :not(caption)>*>* {
+    border-color: #e5e5e5;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-size: 0.95rem;
+    padding: 0.45rem 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-warning {
+    background-color: #f9c846;
+    border: none;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #f7b400;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-success {
+    background-color: #2ecc71;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+}
+
+/* Modal styling */
+.modal.d-block {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    padding-top: 60px;
+}
+
+.modal-content {
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.modal-body label {
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-dialog {
+        margin: 1rem;
+    }
+}
