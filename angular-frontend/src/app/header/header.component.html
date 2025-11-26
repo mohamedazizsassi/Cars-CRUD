@@ -1,15 +1,30 @@
-<nav class="navbar bg-info">
-    <div class="container-fluid d-flex">
-        <button routerLink="liste" routerLinkActive="active-link" class="btn btn-sm btn-primary ml-2">
-            Liste des Voitures
+<nav class="navbar navbar-expand-lg navbar-dark dealership-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="show-cars">
+            <i class="fas fa-car"></i>
+            <span class="brand-name">Premium Auto Dealership</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
-        <button routerLink="ajouter" routerLinkActive="active-link" class="btn btn-sm btn-primary ml-2">
-            Ajouter Voiture
-        </button>
-
-        <button routerLink="show-cars" routerLinkActive="active-link" class="btn btn-sm btn-primary ml-2">
-            Voir les Voitures
-        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="show-cars" routerLinkActive="active-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="liste" routerLinkActive="active-link">
+                        <i class="fas fa-car-side"></i> Our Inventory
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="ajouter" routerLinkActive="active-link">
+                        <i class="fas fa-plus-circle"></i> Add Vehicle
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
